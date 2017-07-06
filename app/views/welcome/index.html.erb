@@ -1,6 +1,6 @@
 <h1>Welcome#index</h1>
 <pre>
-  <% request.headers.each do |header| %>
-    <%= header %>
-  <% end %>
+  HTTP_X_FORWARDED_HOST = <%= request.headers['HTTP_X_FORWARDED_HOST'] %>
+  request.host = <%= request.host %>
+  root_url = <%= root_url %>
 </pre>
