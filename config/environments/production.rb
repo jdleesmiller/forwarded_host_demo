@@ -31,6 +31,10 @@ Rails.application.configure do
   config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+  
+  # Avoid host header injection, according to https://github.com/ankane/secure_rails
+  config.action_controller.default_url_options = { host: "forwarded-host-demo.herokuapp.com" }
+  config.action_controller.asset_host = "forwarded-host-demo.herokuapp.com"
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
